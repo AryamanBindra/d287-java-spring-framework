@@ -12,6 +12,16 @@ Note: Do not remove any elements that were included in the screen. You may add a
 >LineNumber:53 Change: Heading 'Products' changed to 'Electronics'.<br>
 
 D.  Add an “About” page to the application to describe your chosen customer’s company to web viewers and include navigation to and from the “About” page and the main screen.
+>about.html file in src/main/resources/templates/about.html <br>
+> FileName: about.html<br>
+> LineNumber:5 Change: Title changed to 'About Us'<br>
+> LineNumber:7-16 Change: Created About Us description<br>
+> LineNumber: 18 Change: Created a button to return to mainscreen<br>
+> Controller for About.html created in src/main/java/com/example/demo/controllers/AboutController.java<br>
+> FileName: AboutController<br>
+> LineNumber: 1 - 14 Change: Created a controller for About.html<br>
+> FileName: mainscreen.html<br>
+> LineNumber:89 Change: button to about.tml created<br>
 
 E.  Add a sample inventory appropriate for your chosen store to the application. You should have five parts and five products in your sample inventory and should not overwrite existing data in the database.
 

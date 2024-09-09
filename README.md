@@ -42,10 +42,35 @@ F.  Add a “Buy Now” button to your product list. Your “Buy Now” button m
 
 G.  Modify the parts to track maximum and minimum inventory by doing the following:
 •  Add additional fields to the part entity for maximum and minimum inventory.
+>FileName: Part.java 
+>LineNumber: 33-38 Change: Created max and min inventory variables for all parts
+>LineNumber: 60-67 Change: Created a constructor for Part including max and min inv as parameters.
+>LineNumber: 69-71 Change: Getter and Setter methods for max inventory
+>LineNumber: 73-75 Change:  Getter and Setter methods for min inventory
+>FileName: OutsourcedPart.java
+>LineNumber: 18-19 Change: Constructor sets value fo max and min inv for outsourced part.
+>FileName: InhousePart.java
+>LineNumber: 18-19 Change: Constructor sets value fo max and min inv for inHouse part.
+
 •  Modify the sample inventory to include the maximum and minimum fields.
+>FileName: BootStrapData.java
+>LineNumber: 47-48 Change: sets max and min value for part ID 1001L.
+>LineNumber: 66 Change: set max inv for part ID 1002L.
+>Note: Default min and max are already set to the rest of the parts.
+
 •  Add to the InhousePartForm and OutsourcedPartForm forms additional text inputs for the inventory so the user can set the maximum and minimum values.
+>FileName: InhousePartForm.html
+>LineNumber: 24-28 Change: Text Inputs for Max and Min inv
+>FileName: OutsourcedPart.java
+>LineNumber: 24-28 Change: Text Inputs for Max and Min inv
+
 •  Rename the file the persistent storage is saved to.
+>FileName: application.properties
+>LineNumber: 6 Change: persistent storage database name changed
+
 •  Modify the code to enforce that the inventory is between or at the minimum and maximum value.
+>FileName: Part.java
+>LineNumber: 31 Change: @Min and @Max validator tags used to enforce range.
 
 H.  Add validation for between or at the maximum and minimum fields. The validation must include the following:
 •  Display error messages for low inventory when adding and updating parts if the inventory is less than the minimum number of parts.

@@ -3,6 +3,7 @@ package com.example.demo.domain;
 import com.example.demo.validators.ValidDeletePart;
 
 import javax.persistence.*;
+import javax.validation.constraints.Max;
 import javax.validation.constraints.Min;
 import java.io.Serializable;
 import java.util.HashSet;
@@ -27,7 +28,14 @@ public abstract class Part implements Serializable {
     @Min(value = 0, message = "Price value must be positive")
     double price;
     @Min(value = 0, message = "Inventory value must be positive")
+    @Max(value = 50, message = "Inventory value can't exceed 50")
     int inv;
+    @Min(value = 0, message = "Inventory value must be positive")
+    @Max(value = 50, message = "Inventory value can't exceed 50")
+    int maxinv = 50; // default
+    @Min(value = 0, message = "Inventory value must be positive")
+    @Max(value = 50, message = "Inventory value can't exceed 50")
+    int mininv = 0; //default
 
     @ManyToMany
     @JoinTable(name="product_part", joinColumns = @JoinColumn(name="part_id"),
@@ -49,6 +57,23 @@ public abstract class Part implements Serializable {
         this.price = price;
         this.inv = inv;
     }
+
+    public Part(long id, String name, double price, int inv, int maxinv, int mininv) {
+        this.id = id;
+        this.name = name;
+        this.price = price;
+        this.inv = inv;
+        this.maxinv = maxinv;
+        this.mininv = mininv;
+    }
+
+    public int getMaxinv() { return maxinv; }
+
+    public void setMaxinv(int maxinv) { this.maxinv = maxinv; }
+
+    public int getMininv() { return mininv; }
+
+    public void setMininv(int mininv) { this.mininv = mininv; }
 
     public long getId() {
         return id;

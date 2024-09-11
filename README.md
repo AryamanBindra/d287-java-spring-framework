@@ -86,5 +86,7 @@ H.  Add validation for between or at the maximum and minimum fields. The validat
 >LineNumber: 21 Change: added the constraint for inv less than minInv.
 
 I.  Add at least two unit tests for the maximum and minimum fields to the PartTest class in the test package.
+>FileName: PartTest.java
+>LineNumber: 86-102 Change: Added two unit test cases testing the max and min inventory.
 
 J.  Remove the class files for any unused validators in order to clean your code.

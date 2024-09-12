@@ -43,6 +43,11 @@ public class AddOutsourcedPartController {
         if(bindingResult.hasErrors()){
             return "OutsourcedPartForm";
         }
+        if (!part.invValid()){
+            bindingResult.rejectValue("inv","outsourcedpart.invValid","Inv value is not" +
+                    "between max and min value");
+            return "OutsourcedPartForm";
+        }
         else{
         OutsourcedPartService repo=context.getBean(OutsourcedPartServiceImpl.class);
         OutsourcedPart op=repo.findById((int)part.getId());

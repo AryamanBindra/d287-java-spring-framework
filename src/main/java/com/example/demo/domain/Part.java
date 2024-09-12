@@ -1,6 +1,7 @@
 package com.example.demo.domain;
 
 import com.example.demo.validators.ValidDeletePart;
+import com.example.demo.validators.ValidMaxInv;
 import com.example.demo.validators.ValidMinInv;
 
 import javax.persistence.*;
@@ -19,6 +20,7 @@ import java.util.Set;
 @Entity
 @ValidDeletePart
 @ValidMinInv
+@ValidMaxInv
 @Inheritance(strategy = InheritanceType.SINGLE_TABLE)
 @DiscriminatorColumn(name="part_type",discriminatorType = DiscriminatorType.INTEGER)
 @Table(name="Parts")
@@ -129,7 +131,11 @@ public abstract class Part implements Serializable {
 
         return id == part.id;
     }
-
+    public boolean invValid(){
+        if (this.inv>this.maxinv) return false;
+        if (this.inv<this.mininv) return false;
+        return true;
+    }
     @Override
     public int hashCode() {
         return (int) (id ^ (id >>> 32));

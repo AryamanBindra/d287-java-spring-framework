@@ -42,52 +42,74 @@ F.  Add a “Buy Now” button to your product list. Your “Buy Now” button m
 
 G.  Modify the parts to track maximum and minimum inventory by doing the following:
 •  Add additional fields to the part entity for maximum and minimum inventory.
->FileName: Part.java 
->LineNumber: 33-38 Change: Created max and min inventory variables for all parts
->LineNumber: 60-67 Change: Created a constructor for Part including max and min inv as parameters.
->LineNumber: 69-71 Change: Getter and Setter methods for max inventory
->LineNumber: 73-75 Change:  Getter and Setter methods for min inventory
->FileName: OutsourcedPart.java
->LineNumber: 18-19 Change: Constructor sets value fo max and min inv for outsourced part.
->FileName: InhousePart.java
->LineNumber: 18-19 Change: Constructor sets value fo max and min inv for inHouse part.
-
 •  Modify the sample inventory to include the maximum and minimum fields.
->FileName: BootStrapData.java
->LineNumber: 47-48 Change: sets max and min value for part ID 1001L.
->LineNumber: 66 Change: set max inv for part ID 1002L.
->Note: Default min and max are already set to the rest of the parts.
-
 •  Add to the InhousePartForm and OutsourcedPartForm forms additional text inputs for the inventory so the user can set the maximum and minimum values.
->FileName: InhousePartForm.html
->LineNumber: 24-28 Change: Text Inputs for Max and Min inv
->FileName: OutsourcedPart.java
->LineNumber: 24-28 Change: Text Inputs for Max and Min inv
-
 •  Rename the file the persistent storage is saved to.
->FileName: application.properties
->LineNumber: 6 Change: persistent storage database name changed
-
 •  Modify the code to enforce that the inventory is between or at the minimum and maximum value.
->FileName: Part.java
->LineNumber: 31 Change: @Min and @Max validator tags used to enforce range.
+>FileName: Part.java <br>
+>LineNumber: 37 Change: Created max inventory variable for all parts<br>
+>LineNumber: 40 Change: Created min inventory variable for all parts<br>
+>LineNumber: 60-67 Change: Created a constructor for Part including max and min inv as parameters.<br>
+>LineNumber: 69-71 Change: Getter and Setter methods for max inventory<br>
+>LineNumber: 73-75 Change:  Getter and Setter methods for min inventory<br>
+>FileName: OutsourcedPart.java<br>
+>LineNumber: 18-19 Change: Constructor sets value fo max and min inv for outsourced part.<br>
+>FileName: InhousePart.java<br>
+>LineNumber: 18-19 Change: Constructor sets value fo max and min inv for inHouse part.<br>
+<br>
+>FileName: BootStrapData.java<br>
+>LineNumber: 47-48 Change: sets max and min value for part ID 1001L.<br>
+>LineNumber: 66 Change: set max inv for part ID 1002L.<br>
+>Note: Default min and max are already set to the rest of the parts.<br>
+<br>
+>FileName: InhousePartForm.html<br>
+>LineNumber: 24-28 Change: Text Inputs for Max and Min inv<br>
+>FileName: OutsourcedPart.java<br>
+>LineNumber: 24-28 Change: Text Inputs for Max and Min inv<br>
+<br>
+>FileName: application.properties<br>
+>LineNumber: 6 Change: persistent storage database name changed<br>
+<br>
+>FileName: Part.java<br>
+>LineNumber: 31 Change: @Min and @Max validator tags used to enforce range.<br>
+><br>
+> ---REVISED---<br>
+> FileName: README.md Change: Restructured documentation for part G.<br>
+> FileName: mainscreen.html<br>
+> LineNumber: 39-40, 52-53 Change: mainscreen now shows Max and Min inventory for parts.<br> 
+> FileName: Part.java<br>
+> LineNumber: 132-136 Change: Added a boolean method to validate inv is between max and min inventory.<br>
+> FileName: AddInhousePartController.java<br>
+> LineNumber: 42-46 Change: Enforced Inv range using binding result for Inhouse Part.<br>
+> FileName: AddOutsourcedPartController.java<br>
+> LineNumber: 46-50 Change: Enforced Inv range using binding result for Outsourced Part.<br>
 
 H.  Add validation for between or at the maximum and minimum fields. The validation must include the following:
 •  Display error messages for low inventory when adding and updating parts if the inventory is less than the minimum number of parts.
 •  Display error messages for low inventory when adding and updating products lowers the part inventory below the minimum.
 •  Display error messages when adding and updating parts if the inventory is greater than the maximum.
->New File created: ValidMinInv.java in src/main/java/com/example/demo/validators/ValidMinInv.java
->FileName: ValidMinInv.java
->Line Number: 1-15 Change: Implemented min inv annotation.
->New File created: MinInvValidator.java
->FileName: MinInvValidator.java
->LineNumber:1-25 Change: Implemented validator for ValidMinInv.java
->FileName: Part.java
->LineNumber: 21 Change: added the constraint for inv less than minInv.
+>New File created: ValidMinInv.java in src/main/java/com/example/demo/validators/ValidMinInv.java<br>
+>FileName: ValidMinInv.java<br>
+>Line Number: 1-15 Change: Implemented min inv annotation.<br>
+>New File created: MinInvValidator.java<br>
+>FileName: MinInvValidator.java<br>
+>LineNumber:1-25 Change: Implemented validator for ValidMinInv.java<br>
+>FileName: Part.java<br>
+>LineNumber: 21 Change: added the constraint for inv less than minInv.<br>
+>---REVISED---<br>
+> FileName: EnufPartsValidator.java<br>
+> LineNumber: 36-39 Change: Error message added using constraint-validator-context to show low inventory when adding and
+> updating products lowers the part inventory below the minimum.<br>
+> New File: ValidMaxInv.java<br>
+> LineNumber: 1-16 Change: Implemented max inv annotation.<br>
+> New File: MaxInvValidator.java<br>
+> LineNumber: 1-25 Change: Implemented validator for ValidMaxInv.java<br>
+> FileName: Part.java<br>
+> LineNumber: 23 Change: added the constraint for inv more than maxInv.<br>
 
 I.  Add at least two unit tests for the maximum and minimum fields to the PartTest class in the test package.
->FileName: PartTest.java
->LineNumber: 86-102 Change: Added two unit test cases testing the max and min inventory.
+>FileName: PartTest.java<br>
+>LineNumber: 86-102 Change: Added two unit test cases testing the max and min inventory.<br>
 
 J.  Remove the class files for any unused validators in order to clean your code.
->File DeletePartValidator.java is removed.
+>File DeletePartValidator.java is removed.<br>

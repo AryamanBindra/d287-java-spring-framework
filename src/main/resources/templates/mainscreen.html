@@ -36,6 +36,8 @@
             <th>Price</th>
             <th>Inventory</th>
             <th>Action</th>
+            <th>MaxInv</th>
+            <th>MinInv</th>
         </tr>
         </thead>
         <tbody>
@@ -47,6 +49,8 @@
                 <a th:href="@{/deletepart(partID=${tempPart.id})}" class="btn btn-primary btn-sm mb-3"
                    onclick="if(!(confirm('Are you sure you want to delete this part?')))return false">Delete</a>
             </td>
+            <td th:text="${tempPart.maxinv}">1</td>
+            <td  th:text="${tempPart.mininv}">1</td>
         </tr>
         </tbody>
     </table>
